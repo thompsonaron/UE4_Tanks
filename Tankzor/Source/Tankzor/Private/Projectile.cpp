@@ -31,9 +31,7 @@ void AProjectile::Tick( float DeltaTime )
 
 void AProjectile::LaunchProjectile(float Speed) 
 {
-	auto WorldTime = GetWorld()->GetTimeSeconds();
-	UE_LOG(LogTemp, Warning, TEXT("%f: Projectile fires at %f speed"), WorldTime, Speed);
-
 	TankProjectileMovementComponent->SetVelocityInLocalSpace(FVector::ForwardVector * Speed);
 	TankProjectileMovementComponent->bAutoActivate = true;
+	TankProjectileMovementComponent->Activate();
 }
