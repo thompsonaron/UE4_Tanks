@@ -10,6 +10,7 @@
 class UTankBarrel;
 class UTankTurret;
 class UTankAimingComponent;
+class UTankMovementComponent;
 class AProjectile;
 
 
@@ -35,8 +36,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void FireProjectile();
 
+
+
+	UPROPERTY(BlueprintReadOnly)
+		UTankMovementComponent* TankMovementComponent = nullptr;
+
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
+
+	
 
 
 private:
