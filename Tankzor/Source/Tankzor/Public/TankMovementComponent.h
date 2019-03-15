@@ -17,19 +17,20 @@ class TANKZOR_API UTankMovementComponent : public UNavMovementComponent
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
+
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void IntendMoveForward(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Setup)
+	UFUNCTION(BlueprintCallable, Category = "Input")
 	void IntendTurnRight(float Throw);
-
-	UFUNCTION(BlueprintCallable, Category = Input)
-	void Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
 
 private:
+	// called from the pathfinding logic by the AI controllers
+	void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
+	
 	UTankTrack* LeftTrack = nullptr;
-	UTankTrack* RightTrack = nullptr;
-	
-	
+	UTankTrack* RightTrack = nullptr;	
 };
