@@ -6,7 +6,6 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-class ATank;
 
 /**
  * 
@@ -21,7 +20,6 @@ public:
 	void BeginPlay() override;
 	
 	virtual void Tick(float DeltaSeconds) override;
-
 
 	// how close can the AI tank get to target (in cm)
 	float AcceptanceRadius = 3000;
