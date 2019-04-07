@@ -41,9 +41,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void FireProjectile();
 
+	FVector AimDirection;
+
+	EFiringState GetFiringState() const;
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringState FiringState = EFiringState::Locked;
+	EFiringState FiringState = EFiringState::Reloading;
 
 private:
 	UTankBarrel* Barrel = nullptr;
@@ -63,4 +66,10 @@ private:
 	float ReloadTimeSeconds = 3;
 
 	double LastFireTime = 0;
+
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+	virtual void BeginPlay() override;
+
+	bool IsBarrelMoving();
+
 };
