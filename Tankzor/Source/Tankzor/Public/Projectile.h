@@ -25,5 +25,11 @@ public:
 private:
 	UProjectileMovementComponent* TankProjectileMovementComponent = nullptr;
 		//CreateDefaultSubobject<UProjectileMovementComponent>(FName("Projectile Movement Component"));
+
+	UPROPERTY(VisibleAnywhere)
+	UStaticMeshComponent *CollisionMesh = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	UParticleSystemComponent *LaunchBlast = nullptr;
 	
 };
