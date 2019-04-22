@@ -30,6 +30,6 @@ private:
 	UStaticMeshComponent *CollisionMesh = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-	UParticleSystemComponent *LaunchBlast = nullptr;
+	UParticleSystemComponent *Launch_Blast = nullptr;
 	
 };
