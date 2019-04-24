@@ -26,10 +26,15 @@ private:
 	UProjectileMovementComponent* TankProjectileMovementComponent = nullptr;
 		//CreateDefaultSubobject<UProjectileMovementComponent>(FName("Projectile Movement Component"));
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UStaticMeshComponent *CollisionMesh = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent *Launch_Blast = nullptr;
 	
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UParticleSystemComponent *Impact_Blast = nullptr;
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 };
